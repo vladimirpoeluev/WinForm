@@ -35,7 +35,6 @@ namespace WindowsForm
             Point a = _act.Location;
             _act.Hide();
             _act = _listForms[i];
-            
             _act.Show();
             _act.Location = a;
 
@@ -57,14 +56,14 @@ namespace WindowsForm
             _act.Visible = false;
             _listForms = new List<Form>()
             {
-            new Form2(),
-            new Form3(),
-            new Form4(),
-            new Form5(),
-            new Form6(),
-            new Form7(),
-            new Form8(),
-            new Form9()
+                new Form2(),
+                new Form3(),
+                new Form4(),
+                new Form5(),
+                new Form6(),
+                new Form7(),
+                new Form8(),
+                new Form9()
             };
             
             

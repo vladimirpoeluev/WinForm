@@ -179,9 +179,9 @@
             "Книга 1",
             "Книга 2",
             "Книга 3"});
-            this.listBox1.Location = new System.Drawing.Point(185, 74);
+            this.listBox1.Location = new System.Drawing.Point(189, 74);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(380, 368);
+            this.listBox1.Size = new System.Drawing.Size(376, 368);
             this.listBox1.TabIndex = 10;
             // 
             // button2

@@ -6,21 +6,38 @@ namespace WindowsForm
 {
     public partial class Form3 : Form
     {
+        int numUser = 0;
         public Form3()
         {
             InitializeComponent();
-        }
 
+        }
+        private void UpdateText()
+        {
+            textBox1.Clear();
+            listBox1.Items.Clear();
+            foreach (Message mess in ManagUsers.GetMessege(2))
+            {
+                textBox1.Text += $"<{ManagUsers.GetUserName(mess.Sender)}> {mess.Text}" + Environment.NewLine;
+            }
+            foreach(User user in ManagUsers.GetListOfUsers())
+            {
+                listBox1.Items.Add(user.Username);
+            }
+        }
+        
         private void Form3_Load(object sender, EventArgs e)
         {
-
+            UpdateText();
+            Update();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            textBox1.Text += "<Вы> " + textBox2.Text + Environment.NewLine;
-            textBox2.Clear();
+            ManagUsers.AddMessege(numUser, textBox2.Text);
+            UpdateText();
             
+            textBox2.Clear();
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -73,6 +90,17 @@ namespace WindowsForm
             else
                 button3.Text = "Скрыть";
             panel2.Visible = !panel2.Visible;
+        }
+
+        private void listBox1_Click(object sender, EventArgs ex)
+        {
+            MouseEventArgs e = (MouseEventArgs)ex;
+            int index = this.listBox1.IndexFromPoint(e.Location);
+            if (index != ListBox.NoMatches)
+            {
+                numUser = index + 1;
+            }
+            UpdateText();
         }
     }
 }

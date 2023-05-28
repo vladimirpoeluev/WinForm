@@ -17,7 +17,10 @@ namespace WindowsForm
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ManagForms.StartForm(0);
+            if (ManagUsers.Aundif(textBox1.Text, textBox2.Text))
+                ManagForms.StartForm(0);
+            else
+                MessageBox.Show("Неправильно введен пароль или логин");
         }
 
         
@@ -36,6 +39,35 @@ namespace WindowsForm
                 }
             
         }
-        
+
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                textBox2.Focus();
+            }
+
+
+        }
+
+        private void textBox2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (ManagUsers.Aundif(textBox1.Text, textBox2.Text))
+                {
+                    ManagForms.StartForm(0);
+                    textBox1.Clear();
+                    textBox2.Clear();
+                }
+                else
+                {
+                    MessageBox.Show("Неправильно введен пароль или логин");
+                    textBox2.Clear();
+                    
+                }
+                    
+            }
+        }
     }
 }

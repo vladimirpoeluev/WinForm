@@ -9,6 +9,8 @@ namespace WindowsForm
         public Form2()
         {
             InitializeComponent();
+            label2.Text = ManagUsers.ActUser.Username;
+            label3.Text = ManagUsers.ActUser.ID.ToString();
         }
 
         private void label4_Click(object sender, EventArgs e)
